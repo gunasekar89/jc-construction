@@ -33,6 +33,7 @@ type StoryBeat = {
   heading: string;
   body: string;
   align: Align;
+  position?: "middle" | "bottom";
   opacity: MotionValue<number>;
   y: MotionValue<number>;
 };
@@ -51,15 +52,16 @@ function StoryText({ progress }: { progress: MotionValue<number> }) {
 
   const beats: StoryBeat[] = [
     {
-      heading: "The Vision",
-      body: "3D Elevation Design - Your dream home begins here.",
+      heading: "JC Designs & Consulting",
+      body: "3D Elevation Design Services - Your dream home begins here.",
       align: "center",
+      position: "bottom",
       opacity: beat1Opacity,
       y: beat1Y,
     },
     {
-      heading: "Structural Core",
-      body: "Precision-engineered frameworks.",
+      heading: "Structural Design Services",
+      body: "Safe, efficient, and code-compliant structural solutions for your projects.",
       align: "left",
       opacity: beat2Opacity,
       y: beat2Y,
@@ -81,7 +83,8 @@ function StoryText({ progress }: { progress: MotionValue<number> }) {
     {
       heading: "Complete Understanding",
       body: "Your entire house, revealed.",
-      align: "center",
+      align: "right",
+      position: "bottom",
       opacity: beat5Opacity,
       y: beat5Y,
     },
@@ -102,16 +105,25 @@ function StoryText({ progress }: { progress: MotionValue<number> }) {
             ? "w-[90vw] max-w-xl"
             : "w-[74vw] max-w-sm sm:w-[55vw]";
 
+        const positionClass =
+          beat.position === "bottom"
+            ? "bottom-28 sm:bottom-32 md:bottom-36"
+            : "top-[14%] sm:top-[18%] md:top-1/2 md:-translate-y-1/2";
+        const bodyClass =
+          beat.position === "bottom"
+            ? "mt-3 text-base font-semibold tracking-tight text-black sm:text-lg md:text-xl"
+            : "mt-3 text-sm tracking-tight text-black/60 sm:text-base md:text-lg";
+
         return (
           <motion.div
             key={beat.heading}
             style={{ opacity: beat.opacity, y: beat.y }}
-            className={`absolute top-[14%] sm:top-[18%] md:top-1/2 md:-translate-y-1/2 ${alignmentClass} ${widthClass}`}
+            className={`absolute ${positionClass} ${alignmentClass} ${widthClass}`}
           >
             <h2 className="text-2xl font-medium tracking-tight text-black/90 sm:text-3xl md:text-4xl">
               {beat.heading}
             </h2>
-            <p className="mt-3 text-sm tracking-tight text-black/60 sm:text-base md:text-lg">
+            <p className={bodyClass}>
               {beat.body}
             </p>
           </motion.div>
