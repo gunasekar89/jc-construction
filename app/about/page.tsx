@@ -13,32 +13,32 @@ const officeLocations = [
   {
     name: "Chennai",
     detail: "ECR - Main Office",
-    image: "/locations/chennai.png",
+    image: "/locations/chennai.webp",
   },
   {
     name: "Thanjavur",
     detail: "Main Office",
-    image: "/locations/thanjavur.png",
+    image: "/locations/thanjavur.webp",
   },
   {
     name: "Bangalore",
     detail: "KR Puram",
-    image: "/locations/bangalore.png",
+    image: "/locations/bangalore.webp",
   },
   {
     name: "Trichy",
     detail: "Regional Office",
-    image: "/locations/trichy.png",
+    image: "/locations/trichy.webp",
   },
   {
     name: "Pondicherry",
     detail: "Regional Office",
-    image: "/locations/pondicherry.png",
+    image: "/locations/pondicherry.webp",
   },
   {
     name: "Pudukkottai",
     detail: "Regional Office",
-    image: "/locations/pudukkottai.png",
+    image: "/locations/pudukkottai.webp",
   },
 ];
 

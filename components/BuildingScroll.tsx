@@ -11,18 +11,20 @@ import {
 
 const FRAMES_PER_PHASE = 192;
 const TOTAL_FRAMES = FRAMES_PER_PHASE * 3;
-const BACKGROUND = "#E6E6E6";
+const BACKGROUND = "#FFFFFF";
+const SOURCE_TOP_EDGE_CROP = 12;
+const SOURCE_BOTTOM_EDGE_CROP = 12;
 
 function getFramePath(index: number): string {
   if (index <= 191) {
-    return `/sequence/phase1/${String(index + 1).padStart(5, "0")}.png`;
+    return `/sequence/phase1/${String(index + 1).padStart(5, "0")}.webp`;
   }
 
   if (index <= 383) {
-    return `/sequence/phase2/${String(index - 191).padStart(5, "0")}.png`;
+    return `/sequence/phase2/${String(index - 191).padStart(5, "0")}.webp`;
   }
 
-  return `/sequence/phase3/${String(index - 383).padStart(5, "0")}.png`;
+  return `/sequence/phase3/${String(index - 383).padStart(5, "0")}.webp`;
 }
 
 type Align = "left" | "right" | "center";
@@ -170,7 +172,25 @@ export default function BuildingScroll() {
     const x = (width - drawWidth) / 2;
     const y = (height - drawHeight) / 2;
 
-    context.drawImage(image, x, y, drawWidth, drawHeight);
+    // Trim edge artifacts from source frames (top artifact appears as a dark divider under header).
+    const sourceX = 0;
+    const sourceY = SOURCE_TOP_EDGE_CROP;
+    const sourceWidth = image.naturalWidth;
+    const sourceHeight = Math.max(
+      1,
+      image.naturalHeight - SOURCE_TOP_EDGE_CROP - SOURCE_BOTTOM_EDGE_CROP,
+    );
+    context.drawImage(
+      image,
+      sourceX,
+      sourceY,
+      sourceWidth,
+      sourceHeight,
+      x,
+      y,
+      drawWidth,
+      drawHeight,
+    );
   };
 
   const requestDraw = (frameIndex: number) => {
@@ -262,21 +282,18 @@ export default function BuildingScroll() {
   const percent = Math.round((loadedCount / TOTAL_FRAMES) * 100);
 
   return (
-    <section ref={containerRef} className="relative h-[560vh] w-full bg-[#E6E6E6] pt-24 sm:pt-16">
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#E6E6E6]">
+    <section ref={containerRef} className="relative h-[560vh] w-full bg-white pt-24 sm:pt-16">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
         <canvas
           ref={canvasRef}
           className="absolute inset-0 h-full w-full"
           aria-label="Building layer sequence"
         />
 
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-10 bg-white sm:h-12" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-10 bg-white sm:h-12" />
-
         <StoryText progress={scrollYProgress} />
 
         {!isLoaded && (
-          <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-[#E6E6E6]">
+          <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-white">
             <div className="h-10 w-10 animate-spin rounded-full border-2 border-black/20 border-t-black/70" />
             <p className="mt-6 text-sm tracking-tight text-black/60">
               Loading building layers... {percent}%

@@ -13,7 +13,7 @@ const whatsappHref =
 
 export default function SiteHeader() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 bg-white">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
         <Link href="/" className="text-sm font-semibold tracking-tight text-black/90 sm:text-base">
           JC Designs &amp; Consulting
