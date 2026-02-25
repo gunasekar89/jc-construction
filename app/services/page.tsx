@@ -1,3 +1,15 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Architecture Services in Thanjavur",
+  description:
+    "Architecture services in Thanjavur by JC Designs & Consulting: house plans, 3D design, walkthroughs, technical drawings, and PMC consulting.",
+  alternates: {
+    canonical: "/services",
+  },
+};
+
 const services = [
   "3D Rendering",
   "Architectural Design",
@@ -52,6 +64,33 @@ const processSteps = [
   },
 ];
 
+const localLandingPages = [
+  {
+    href: "/residential-architect-thanjavur",
+    title: "Residential Architect in Thanjavur",
+  },
+  {
+    href: "/commercial-architect-thanjavur",
+    title: "Commercial Architect in Thanjavur",
+  },
+  {
+    href: "/3d-elevation-design-thanjavur",
+    title: "3D Elevation Design in Thanjavur",
+  },
+  {
+    href: "/architect-kumbakonam",
+    title: "Architect in Kumbakonam",
+  },
+  {
+    href: "/architect-trichy",
+    title: "Architect in Trichy",
+  },
+  {
+    href: "/architect-pudukkottai",
+    title: "Architect in Pudukkottai",
+  },
+];
+
 export default function ServicesPage() {
   return (
     <main className="mx-auto w-full max-w-7xl px-5 pb-20 pt-28 sm:px-8">
@@ -96,6 +135,23 @@ export default function ServicesPage() {
                 {step.detail}
               </p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-12 max-w-4xl border border-black/10 bg-white p-6 sm:p-8">
+        <h2 className="text-2xl font-medium tracking-tight text-black/90">
+          Local Service Pages
+        </h2>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {localLandingPages.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="border border-black/10 bg-[#F2F2F2] px-4 py-3 text-sm tracking-tight text-black/80 transition-colors hover:border-black/30 hover:text-black"
+            >
+              {item.title}
+            </Link>
           ))}
         </div>
       </section>

@@ -1,3 +1,14 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Architecture Projects in Thanjavur",
+  description:
+    "Explore architecture and construction project capabilities from JC Designs & Consulting in Thanjavur.",
+  alternates: {
+    canonical: "/projects",
+  },
+};
+
 const focusAreas = [
   {
     title: "3D Exterior / Interior",

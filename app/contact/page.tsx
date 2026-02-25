@@ -1,4 +1,15 @@
 import ContactLeadForm from "@/components/ContactLeadForm";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Contact Architect in Thanjavur",
+  description:
+    "Contact JC Designs & Consulting, Thanjavur architecture firm for residential and commercial design, drawings, and project consulting.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 const branchLocations = [
   "Chennai (ECR - Main Office)",
@@ -7,6 +18,15 @@ const branchLocations = [
   "Trichy",
   "Pudukkottai",
   "Chennai",
+];
+
+const localLandingPages = [
+  { href: "/residential-architect-thanjavur", title: "Residential Architect in Thanjavur" },
+  { href: "/commercial-architect-thanjavur", title: "Commercial Architect in Thanjavur" },
+  { href: "/3d-elevation-design-thanjavur", title: "3D Elevation Design in Thanjavur" },
+  { href: "/architect-kumbakonam", title: "Architect in Kumbakonam" },
+  { href: "/architect-trichy", title: "Architect in Trichy" },
+  { href: "/architect-pudukkottai", title: "Architect in Pudukkottai" },
 ];
 
 export default function ContactPage() {
@@ -34,12 +54,12 @@ export default function ContactPage() {
         <article className="border border-black/10 bg-white p-5">
           <p className="text-xs uppercase tracking-[0.15em] text-black/50">Website</p>
           <a
-            href="https://jc-design-consulting.business.site"
+            href="https://www.jcdesignsconsulting.in"
             target="_blank"
             rel="noreferrer"
             className="mt-2 block text-sm tracking-tight text-black/80 underline"
           >
-            jc-design-consulting.business.site
+            www.jcdesignsconsulting.in
           </a>
         </article>
         <article className="border border-black/10 bg-white p-5">
@@ -60,6 +80,21 @@ export default function ContactPage() {
             >
               {location}
             </span>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-4 border border-black/10 bg-white p-6">
+        <h2 className="text-xl font-medium tracking-tight text-black/90">Local Service Pages</h2>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          {localLandingPages.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="border border-black/10 bg-[#F2F2F2] px-4 py-3 text-sm tracking-tight text-black/80 transition-colors hover:border-black/30 hover:text-black"
+            >
+              {item.title}
+            </Link>
           ))}
         </div>
       </section>

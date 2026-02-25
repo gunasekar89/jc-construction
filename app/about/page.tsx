@@ -1,4 +1,15 @@
 import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About Our Architecture Firm in Thanjavur",
+  description:
+    "Learn about JC Designs & Consulting, a family-led architecture and construction consulting firm based in Thanjavur, Tamil Nadu.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 const businessHighlights = [
   { label: "Business Name", value: "JC Designs & Consulting" },
@@ -6,7 +17,7 @@ const businessHighlights = [
   { label: "Typical Job Cost", value: "Rs. 1500 - Rs. 150000" },
   { label: "Contact Office", value: "+91 76049 55226" },
   { label: "Email", value: "jcdesigntnj@gmail.com" },
-  { label: "Website", value: "jc-design-consulting.business.site" },
+  { label: "Website", value: "www.jcdesignsconsulting.in" },
 ];
 
 const officeLocations = [
@@ -46,6 +57,15 @@ const principles = [
   "Discipline in execution",
   "Respect for timelines",
   "Commitment to client trust",
+];
+
+const localLandingPages = [
+  { href: "/residential-architect-thanjavur", title: "Residential Architect in Thanjavur" },
+  { href: "/commercial-architect-thanjavur", title: "Commercial Architect in Thanjavur" },
+  { href: "/3d-elevation-design-thanjavur", title: "3D Elevation Design in Thanjavur" },
+  { href: "/architect-kumbakonam", title: "Architect in Kumbakonam" },
+  { href: "/architect-trichy", title: "Architect in Trichy" },
+  { href: "/architect-pudukkottai", title: "Architect in Pudukkottai" },
 ];
 
 export default function AboutPage() {
@@ -145,6 +165,21 @@ export default function AboutPage() {
                 </div>
               </div>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-8 max-w-5xl border border-black/10 bg-white p-6 sm:p-8">
+        <h2 className="text-2xl font-medium tracking-tight text-black/90">Local Service Pages</h2>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {localLandingPages.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="border border-black/10 bg-[#F2F2F2] px-4 py-3 text-sm tracking-tight text-black/80 transition-colors hover:border-black/30 hover:text-black"
+            >
+              {item.title}
+            </Link>
           ))}
         </div>
       </section>
