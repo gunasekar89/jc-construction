@@ -80,7 +80,7 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="border border-black/10 bg-[#F2F2F2] px-4 py-3 text-sm tracking-tight text-black/80 transition-colors hover:border-black/30 hover:text-black"
+                className="interactive-link-card"
               >
                 {item.title}
               </Link>

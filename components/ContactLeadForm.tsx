@@ -114,10 +114,10 @@ export default function ContactLeadForm() {
           <button
             type="button"
             onClick={() => setForm((prev) => ({ ...prev, inquiryType: "general" }))}
-            className={`rounded-full border px-4 py-2 text-xs tracking-tight transition-colors sm:text-sm ${
+            className={`toggle-chip ${
               form.inquiryType === "general"
                 ? "border-black/80 bg-black text-white"
-                : "border-black/20 text-black/60 hover:border-black/40"
+                : "border-black/20 text-black/60 hover:border-black/40 hover:bg-black/5 hover:text-black/85"
             }`}
           >
             General Inquiry
@@ -125,10 +125,10 @@ export default function ContactLeadForm() {
           <button
             type="button"
             onClick={() => setForm((prev) => ({ ...prev, inquiryType: "quote" }))}
-            className={`rounded-full border px-4 py-2 text-xs tracking-tight transition-colors sm:text-sm ${
+            className={`toggle-chip ${
               form.inquiryType === "quote"
                 ? "border-black/80 bg-black text-white"
-                : "border-black/20 text-black/60 hover:border-black/40"
+                : "border-black/20 text-black/60 hover:border-black/40 hover:bg-black/5 hover:text-black/85"
             }`}
           >
             Request a Quote
@@ -251,7 +251,7 @@ export default function ContactLeadForm() {
           <button
             type="submit"
             disabled={submitting}
-            className="inline-flex h-11 items-center justify-center border border-black/80 bg-black px-6 text-sm tracking-tight text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-60"
+            className="cta-primary px-6"
           >
             {submitting
               ? "Submitting..."
@@ -273,7 +273,7 @@ export default function ContactLeadForm() {
             href={whatsappHref}
             target="_blank"
             rel="noreferrer"
-            className="mt-5 inline-flex h-11 items-center justify-center border border-black/80 bg-black px-5 text-sm tracking-tight text-white"
+            className="cta-primary mt-5"
           >
             Chat on WhatsApp
           </a>

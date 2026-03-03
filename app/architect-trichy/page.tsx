@@ -56,7 +56,7 @@ export default function ArchitectTrichyPage() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/contact"
-            className="inline-flex h-11 items-center justify-center border border-black/80 bg-black px-5 text-sm tracking-tight text-white"
+            className="cta-primary"
           >
             Book Free Consultation
           </Link>
@@ -64,7 +64,7 @@ export default function ArchitectTrichyPage() {
             href={whatsappHref}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex h-11 items-center justify-center border border-black/30 bg-white px-5 text-sm tracking-tight text-black/80"
+            className="cta-secondary"
           >
             WhatsApp Us
           </a>

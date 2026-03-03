@@ -17,8 +17,11 @@ const branchLocations = [
   "Bangalore (KR Puram)",
   "Trichy",
   "Pudukkottai",
-  "Chennai",
 ];
+
+const phoneHref = "tel:+917604955226";
+const gmailComposeHref =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=jcdesigntnj@gmail.com";
 
 const localLandingPages = [
   { href: "/residential-architect-thanjavur", title: "Residential Architect in Thanjavur" },
@@ -45,11 +48,23 @@ export default function ContactPage() {
       <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <article className="border border-black/10 bg-white p-5">
           <p className="text-xs uppercase tracking-[0.15em] text-black/50">Phone</p>
-          <p className="mt-2 text-sm tracking-tight text-black/80">+91 76049 55226</p>
+          <a
+            href={phoneHref}
+            className="mt-2 inline-flex text-sm tracking-tight text-black/80 underline-offset-4 transition-colors hover:text-black hover:underline"
+          >
+            +91 76049 55226
+          </a>
         </article>
         <article className="border border-black/10 bg-white p-5">
           <p className="text-xs uppercase tracking-[0.15em] text-black/50">Email</p>
-          <p className="mt-2 text-sm tracking-tight text-black/80">jcdesigntnj@gmail.com</p>
+          <a
+            href={gmailComposeHref}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-flex text-sm tracking-tight text-black/80 underline-offset-4 transition-colors hover:text-black hover:underline"
+          >
+            jcdesigntnj@gmail.com
+          </a>
         </article>
         <article className="border border-black/10 bg-white p-5">
           <p className="text-xs uppercase tracking-[0.15em] text-black/50">Website</p>
@@ -91,7 +106,7 @@ export default function ContactPage() {
             <Link
               key={item.href}
               href={item.href}
-              className="border border-black/10 bg-[#F2F2F2] px-4 py-3 text-sm tracking-tight text-black/80 transition-colors hover:border-black/30 hover:text-black"
+              className="interactive-link-card"
             >
               {item.title}
             </Link>

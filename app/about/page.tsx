@@ -129,7 +129,7 @@ export default function AboutPage() {
           {principles.map((item) => (
             <li
               key={item}
-              className="flex min-h-[88px] items-center justify-center border border-black/10 bg-[#E6E6E6] px-4 py-3 text-center text-sm tracking-tight text-black/80"
+              className="flex min-h-[88px] items-center justify-center border border-black/10 bg-[#E6E6E6] px-4 py-3 text-center text-sm tracking-tight text-black/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-black/30 hover:bg-white hover:text-black/90 hover:shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
             >
               {item}
             </li>
@@ -179,7 +179,7 @@ export default function AboutPage() {
             <Link
               key={item.href}
               href={item.href}
-              className="border border-black/10 bg-[#F2F2F2] px-4 py-3 text-sm tracking-tight text-black/80 transition-colors hover:border-black/30 hover:text-black"
+              className="interactive-link-card"
             >
               {item.title}
             </Link>

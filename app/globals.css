@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .interactive-link-card {
+    @apply relative overflow-hidden border border-black/10 bg-[#F2F2F2] px-4 py-3 text-sm tracking-tight text-black/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-black/30 hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20;
+  }
+
+  .interactive-link-card::after {
+    content: "";
+    @apply absolute bottom-0 left-4 h-px w-0 bg-black transition-all duration-300;
+  }
+
+  .interactive-link-card:hover::after,
+  .interactive-link-card:focus-visible::after {
+    @apply w-8;
+  }
+
+  .cta-primary {
+    @apply inline-flex h-11 items-center justify-center border border-black/80 bg-black px-5 text-sm tracking-tight text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-black/90 hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/25 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .cta-secondary {
+    @apply inline-flex h-11 items-center justify-center border border-black/30 bg-white px-5 text-sm tracking-tight text-black/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-black/50 hover:bg-[#F7F7F7] hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20;
+  }
+
+  .toggle-chip {
+    @apply rounded-full border px-4 py-2 text-xs tracking-tight transition-all duration-200 sm:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20;
+  }
+}
+
 :root {
   background: #ffffff;
 }

@@ -8,6 +8,8 @@ const config = [
       ".next/**",
       ".next_corrupt_1771786151/**",
       "node_modules/**",
+      "test-results/**",
+      "playwright-report/**",
       "public/sequence/**",
       "Animation/**",
     ],
