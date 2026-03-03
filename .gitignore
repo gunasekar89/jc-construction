@@ -22,3 +22,7 @@ pnpm-debug.log*
 .next_corrupt_*/
 .vercel
 .env*.local
+test-results/
+playwright-report/
+tsconfig.tsbuildinfo
+tmp-*.png

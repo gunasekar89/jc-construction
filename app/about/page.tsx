@@ -14,7 +14,10 @@ export const metadata: Metadata = {
 const businessHighlights = [
   { label: "Business Name", value: "JC Designs & Consulting" },
   { label: "Category", value: "Architects & Building Designers" },
-  { label: "Typical Job Cost", value: "Rs. 1500 - Rs. 150000" },
+  {
+    label: "Typical Project Engagement",
+    value: "Quoted after reviewing scope, site size, design package, and drawing requirements",
+  },
   { label: "Contact Office", value: "+91 76049 55226" },
   { label: "Email", value: "jcdesigntnj@gmail.com" },
   { label: "Website", value: "www.jcdesignsconsulting.in" },

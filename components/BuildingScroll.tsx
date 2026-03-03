@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   motion,
   MotionValue,
@@ -148,7 +148,7 @@ export default function BuildingScroll() {
     offset: ["start start", "end end"],
   });
 
-  const drawFrame = (frameIndex: number) => {
+  const drawFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current;
     const image = imagesRef.current[frameIndex];
 
@@ -203,9 +203,9 @@ export default function BuildingScroll() {
       drawWidth,
       drawHeight,
     );
-  };
+  }, []);
 
-  const requestDraw = (frameIndex: number) => {
+  const requestDraw = useCallback((frameIndex: number) => {
     if (rafRef.current) {
       cancelAnimationFrame(rafRef.current);
     }
@@ -214,7 +214,7 @@ export default function BuildingScroll() {
       drawFrame(frameIndex);
       rafRef.current = null;
     });
-  };
+  }, [drawFrame]);
 
   useEffect(() => {
     let mounted = true;
@@ -271,7 +271,7 @@ export default function BuildingScroll() {
     return () => {
       window.removeEventListener("resize", onResize);
     };
-  }, [isLoaded]);
+  }, [isLoaded, requestDraw]);
 
   useMotionValueEvent(scrollYProgress, "change", (value) => {
     if (!isLoaded) {
